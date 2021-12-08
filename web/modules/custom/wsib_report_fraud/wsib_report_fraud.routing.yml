@@ -1,0 +1,11 @@
+wsib_report_fraud.config_form:
+  path: '/admin/content/report-fraud-config'
+  defaults:
+    _form: '\Drupal\wsib_report_fraud\Form\ReportFraudConfigForm'
+    _title: 'WSIB Report Fraud Configuration Form'
+  requirements:
+    _permission: 'report fraud form config access'
+wsib_report_fraud.info_page:
+  path: '/report-fraud-info'
+wsib_report_fraud.info_page_en:
+  path: '/report-fraud-info'

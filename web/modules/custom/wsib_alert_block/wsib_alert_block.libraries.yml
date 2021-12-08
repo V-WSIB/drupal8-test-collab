@@ -1,0 +1,6 @@
+wsib_alert:
+  js:
+    js/wsib_alert.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

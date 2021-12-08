@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for the WSIB Search module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function wsib_search_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Hide default search input and button.
+  $form_ids = [
+    'views-exposed-form-acquia-search-content-search',
+    'views-exposed-form-acquia-search-document-search',
+  ];
+  if (in_array($form['#id'], $form_ids)) {
+    $form['search']['#attributes']['class'][] = 'element-invisible';
+    $form['actions']['#attributes']['class'][] = 'element-invisible';
+  }
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function wsib_search_theme() {
+  return [
+    'wsib_search_block' => [
+      'variables' => [
+        'form' => NULL,
+        'tabs' => NULL,
+      ],
+    ],
+  ];
+}

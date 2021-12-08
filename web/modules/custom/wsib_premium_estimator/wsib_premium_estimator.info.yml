@@ -1,0 +1,5 @@
+name: WSIB Premium Estimator
+type: module
+description: Module for WSIB Premium Estimator data import and customer query
+core: 8.x
+package: DE Custom

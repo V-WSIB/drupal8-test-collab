@@ -1,0 +1,5 @@
+name: 'WSIB Reconciliation Guide Embed'
+type: module
+description: 'Custom template with library and styles for the Reconciliation Guide page.'
+core: 8.x
+package: DE Custom

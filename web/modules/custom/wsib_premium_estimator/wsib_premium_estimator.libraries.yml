@@ -1,0 +1,7 @@
+back_previous_page:
+  version: VERSION
+  js:
+    js/back_previous_page.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

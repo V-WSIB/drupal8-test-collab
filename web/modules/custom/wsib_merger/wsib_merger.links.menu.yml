@@ -1,0 +1,6 @@
+wsib_merger.form:
+  title: 'WSIB Merger Administration'
+  parent: system.admin_content
+  route_name: wsib_merger.form
+  weight: 100
+  menu_name: system

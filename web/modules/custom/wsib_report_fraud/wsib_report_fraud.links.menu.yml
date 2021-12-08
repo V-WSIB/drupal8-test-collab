@@ -1,0 +1,6 @@
+wsib_report_fraud.config_form:
+  title: 'WSIB Report Fraud Form Administration'
+  parent: system.admin_content
+  route_name: wsib_report_fraud.config_form
+  weight: 200
+  menu_name: system

@@ -1,0 +1,15 @@
+menu_accordion:
+  version: VERSION
+  js:
+    js/menu_accordion.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+menu_display_children:
+  version: VERSION
+  js:
+    js/menu_display_children.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

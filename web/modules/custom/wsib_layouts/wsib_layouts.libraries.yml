@@ -1,0 +1,16 @@
+blazy_init:
+  version: VERSION
+  js:
+    js/blazy_bg_init.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - blazy/blazy
+image_randomizer:
+  version: VERSION
+  js:
+    js/image_randomizer.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

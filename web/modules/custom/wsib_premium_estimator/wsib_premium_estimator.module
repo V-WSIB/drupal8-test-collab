@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for WSIB Premium Estimator module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wsib_premium_estimator_form_wsib_premium_estimator_import_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#value'] = t('Upload File');
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function wsib_premium_estimator_views_pre_render(ViewExecutable $view) {
+  if ($view->id() === 'sector' && $view->current_display === 'page_1') {
+    $view->element['#attached']['library'][] = 'wsib_premium_estimator/back_previous_page';
+  }
+}

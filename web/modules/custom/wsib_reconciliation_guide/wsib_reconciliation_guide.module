@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for WSIB Components module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter() for hook_node_view_alter().
+ */
+function wsib_reconciliation_guide_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  switch ($entity->bundle()) {
+    case 'page':
+      switch ($display->getMode()) {
+        case 'default':
+          if ($entity->id() === '23176') {
+            $build['#attached']['library'][] = 'wsib_reconciliation_guide/reconciliation_guide';
+          }
+          break;
+      }
+      break;
+  }
+}

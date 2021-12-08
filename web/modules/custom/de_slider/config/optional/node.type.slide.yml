@@ -1,0 +1,17 @@
+uuid: 4b4054f9-0729-484e-a395-f4e66b2fee68
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Slide
+type: slide
+description: 'Create a slide to be part of the homepage slider.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

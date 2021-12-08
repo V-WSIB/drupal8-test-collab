@@ -1,0 +1,4 @@
+wsib_report_fraud.settings:
+  route_name: wsib_report_fraud.config_form
+  title: Settings
+  base_route: wsib_report_fraud.config_form

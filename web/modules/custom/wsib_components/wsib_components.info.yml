@@ -1,0 +1,8 @@
+name: 'WSIB Components'
+type: module
+description: 'Add libraries and various tweaks for components used throughout the site.'
+core: 8.x
+package: Custom
+dependencies:
+  - video_embed_field
+  - colorbox

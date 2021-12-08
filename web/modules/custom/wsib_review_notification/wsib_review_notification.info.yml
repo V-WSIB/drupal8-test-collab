@@ -1,0 +1,7 @@
+name: WSIB Ready for Review Notification
+type: module
+description: Provides notification for Publisher users when a node is ready for review
+core: 8.x
+package: DE Custom
+dependencies:
+  - wsib_send_email

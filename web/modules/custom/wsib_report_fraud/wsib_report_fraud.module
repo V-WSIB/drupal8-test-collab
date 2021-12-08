@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * WSIB Report Fraud module file.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_mail().
+ */
+function wsib_report_fraud_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  switch ($key) {
+    case 'report_fraud_submission':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = Html::escape($params['subject']);
+      $message['body'][] = Html::escape($params['message']);
+      $message['params']['files'] = $params['attachments'];
+      break;
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function wsib_report_fraud_mail_alter(&$message) {
+  if (strpos($message['id'], 'wsib_report_fraud') === 0) {
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+  }
+}

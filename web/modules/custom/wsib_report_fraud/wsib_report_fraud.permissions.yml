@@ -1,0 +1,4 @@
+report fraud form config access:
+  title: 'Access to Report Fraud Form configuration'
+  description: 'Enables the specific role to set content for Report Fraud form'
+  restrict access: true

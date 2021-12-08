@@ -1,0 +1,7 @@
+form_select_control:
+  version: VERSION
+  js:
+    js/form_select_control.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

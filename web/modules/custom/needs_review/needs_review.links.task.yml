@@ -1,0 +1,5 @@
+needs_review.review:
+  title: 'Needs Review'
+  route_name: needs_review.review
+  parent_id: system.admin_content
+  weight: 2

@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Theme override to display the Reconciliation guide page.
+ */
+#}
+
+<header id="header">
+  <div class="layout-container">
+    <div class="layout-header">
+      <div id="masthead" class="masthead">
+        {{ page.masthead_mobile_actions }}
+        {{ page.masthead_actions }}
+        {{ page.masthead_primary }}
+        {{ page.masthead_secondary }}
+      </div>
+      {{ page.navigation_primary }}
+    </div>
+  </div>
+</header>
+
+{{ page.content_prefix }}
+
+<div class="section-content">
+  <div class="layout-container ">
+    <main id="main" class="column">
+      <a id="main-content" tabindex="-1"></a>
+      <div class="layout-content">
+        {{ page.content }}
+      </div>
+    </main>
+    {% if page.sidebar_first %}
+      <aside class="column sidebar layout-sidebar-first" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+
+    {% if page.sidebar_second %}
+      <aside class="column sidebar layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+  </div>
+</div>
+
+{{ page.content_suffix }}
+{{ attach_library('wsib_need_to_register/need_to_register') }}
+
+{% if page.footer_first %}
+<footer id="footer">
+  {{ page.footer_first }}
+  {{ page.footer_second }}
+</footer>
+{% endif %}

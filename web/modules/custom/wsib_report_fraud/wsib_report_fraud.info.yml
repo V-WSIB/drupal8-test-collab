@@ -1,0 +1,5 @@
+name: WSIB Report Fraud
+type: module
+description: Module for WSIB Report Fraud form
+core: 8.x
+package: DE Custom

@@ -1,0 +1,5 @@
+name: WSIB PCD Map
+type: module
+description: Provides mapping for programs of care directory to assist with initial migration. One time use module.
+core: 8.x
+package: DE Custom

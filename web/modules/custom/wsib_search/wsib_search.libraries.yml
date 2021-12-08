@@ -1,0 +1,14 @@
+search_trigger_header:
+  js:
+    js/search_header.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+search_trigger:
+  js:
+    js/search_trigger.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

@@ -1,0 +1,4 @@
+needs_review.review:
+  path: '/admin/content/review'
+  requirements:
+    _permission: 'administer site configuration'

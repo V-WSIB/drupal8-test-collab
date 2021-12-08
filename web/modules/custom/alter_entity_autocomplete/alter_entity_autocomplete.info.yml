@@ -1,0 +1,5 @@
+name: Alter Entity Autocomplete
+description: Alter content displayed on autocomplete widget
+package: DE Custom
+type: module
+core: 8.x

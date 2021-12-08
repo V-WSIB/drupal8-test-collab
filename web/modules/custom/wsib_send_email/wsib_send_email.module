@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * WSIB Send Email module file.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_mail().
+ */
+function wsib_send_email_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'report_fraud_submission':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = Html::escape($params['subject']);
+      $message['body'][] = Html::escape($params['message']);
+      $message['params']['files'] = $params['attachments'];
+      break;
+
+    case 'ready_for_review_notification':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = Html::escape($params['subject']);
+      $message['body'][] = Html::escape($params['message']);
+      break;
+  }
+}

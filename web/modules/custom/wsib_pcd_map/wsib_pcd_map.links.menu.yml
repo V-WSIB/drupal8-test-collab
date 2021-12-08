@@ -1,0 +1,12 @@
+wsib_pcd_map.form:
+  title: 'WSIB PCD Map Administration'
+  parent: system.admin_content
+  route_name: wsib_pcd_map.form
+  weight: 100
+  menu_name: system
+wsib_pcd_map.import_form:
+  title: 'WSIB PCD Import Administration'
+  parent: system.admin_content
+  route_name: wsib_pcd_map.import_form
+  weight: 100
+  menu_name: system

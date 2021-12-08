@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for WSIB Components module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function wsib_need_to_register_theme($existing, $type, $theme, $path) {
+  return [
+    'page__node__64841' => [
+      'variables' => [],
+    ],
+  ];
+}

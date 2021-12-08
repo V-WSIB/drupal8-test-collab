@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for WSIB Constraction Calculator Module.
+ */
+use \Drupal\Core\StringTranslation\TranslatableMarkup;
+/**
+ * Implements hook_theme().
+ */
+function wsib_construction_ind_calc_theme($existing, $type, $theme, $path) {
+  return [
+    'wsib_constr_calc' => [
+      'variables' => [],
+    ],
+  ];
+}

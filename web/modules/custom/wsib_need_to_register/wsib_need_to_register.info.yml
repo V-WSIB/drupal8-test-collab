@@ -1,0 +1,5 @@
+name: 'WSIB Do you need to register with us embed'
+type: module
+description: 'Custom template with library and styles for the Do you need to register with us page.'
+core: 8.x
+package: DE Custom

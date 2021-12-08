@@ -1,0 +1,5 @@
+name: WSIB Send Email
+type: module
+description: Provides sending email functionality for other custom modules
+core: 8.x
+package: DE Custom

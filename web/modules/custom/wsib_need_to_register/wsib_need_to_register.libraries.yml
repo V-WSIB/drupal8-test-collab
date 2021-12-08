@@ -1,0 +1,9 @@
+need_to_register:
+  version: VERSION
+  css:
+    theme:
+      css/need_to_register.css: {}
+  js:
+    js/need_to_register.js: {}
+  dependencies:
+    - core/jquery

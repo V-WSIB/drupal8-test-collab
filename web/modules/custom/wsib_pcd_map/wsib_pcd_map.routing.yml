@@ -1,0 +1,14 @@
+wsib_pcd_map.form:
+  path: '/admin/content/pcd-map'
+  defaults:
+    _form: '\Drupal\wsib_pcd_map\Form\WsibPcdMapForm'
+    _title: 'PCD Mapping Administration Form'
+  requirements:
+    _permission: 'administer site configuration'
+wsib_pcd_map.import_form:
+  path: '/admin/content/pcd-import'
+  defaults:
+    _form: '\Drupal\wsib_pcd_map\Form\WsibPcdImportForm'
+    _title: 'PCD Translation Import Administration Form'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+
+#body-bg { min-height:700px; }
+
+#content-area { /*max-width:655px;*/ }
+#content-area input[type="text"]:focus, select:focus { background-color: #F6F6F6; outline:thin solid #FFCC00; }
+#content-area p, #content-area h2 { max-width:800px; }
+
+.body-div { padding:0px 20px 14px 0px; min-height:650px; }
+.rightalign { float:right; }
+select { font-size:11px; }
+.error { color:#FF0000; font-size:11px; clear:both; display:block; margin-bottom:6px; }
+.disclaimer { border: 1px solid #C5C5C5; border-radius: 8px 8px 8px 8px; margin-bottom: 20px; padding: 0px 20px 5px 20px; }
+.hrsecondary { background-color: #CCCCCC; border: 0 solid #CCCCCC; clear: both; color: #CCCCCC; display: block; height: 1px; visibility: visible; margin:10px 0; }
+.supporttext { font-size:11px; }
+.lowercase { text-transform:lowercase; }
+.callout { padding:10px 0px; font-weight:bold; }
+.bolded { font-weight:bold; }
+/*.breadcrumb { font-size:11px; color:#666666; display:none; }*/
+
+.floatbox { background: url("http://www.wsib.on.ca/cs/groups/public/documents/staticfile/c2li/mdew/~edisp/wsib010837.gif") repeat-x scroll center top #FFFFFF; border: 1px solid #C5C5C5; border-radius: 8px 8px 8px 8px; position:relative; /*float:left;*/ top:0px; left:4px; margin: 0; padding: 8px; width: 770px; z-index:101; }
+.floatbox dl { margin: 0; padding: 0; }
+.floatbox dt { clear: both; font-size: 10px; font-weight: bold; margin: 0; padding: 0; }
+.floatbox dd { -moz-margin-start: 0; font-size: 10px; margin: 0; padding: 0; }
+.floatbox dd ul { margin-left:0px; padding: 0px 0px 0px 11px; }
+.fbthin { width: 250px; }
+
+#select a { color:#343434; }
+#content-area a.nodecoration img { border: 0 none; border-bottom: 0px solid #006633; text-decoration: none; outline:0; }
+#content-area a.nodecoration { border: 0 none; text-decoration: none; padding:0; outline:0; }
+#content-area a.info { text-indent:-9999px; width:14px; height:17px; background:url("http://www.wsib.on.ca/cs/groups/public/documents/staticfile/c2li/mdex/~edisp/wsib011054.gif") no-repeat scroll left bottom #FFFFFF; display:inline-block; outline:0; }
+#main a.whitelink:link, #main a.whitelink:visited, #main a.whitelink:hover, #main a.whitelink:active, #main a.whitelink:focus { color:#FFFFFF; background-color: transparent; }
+
+.rate-table { border-top:1px solid #CCCCCC; }
+.rate-table tr { vertical-align:top; }
+.rate-table tr.alt { background-color: #F8FEF5; font-weight:bold; }
+.rate-table tr td { border-bottom:1px solid #CCCCCC; padding:10px; }
+.rate-table tr td.last { border-bottom:0px solid #CCCCCC; }
+.rate-table-rs { width:200px; }
+.rate-table a img { border-bottom: 0px solid #006633; text-decoration: none; }
+.secondtable { border-top-color:#FFFFFF; }
+.secondtable h3 { margin:0px; padding:0 0 10px 0; }
+td.td-header { background: url( "th-bg.gif") no-repeat scroll left top #999; color:#FFFFFF; font-weight:bold; }
+
+.inputerror { background-color: #FFDFDF; }
+
+ul.errormessage { background-color: #FFDFDF; border: 2px solid #CC0000; margin: 0.6em 0; padding: 0.6em; }
+ul.errormessage li { background-color: transparent; background-image: url("http://www.wsib.on.ca/cs/groups/public/documents/staticfile/c2li/mdew/~edisp/wsib010899.gif"); background-position: 0 center; background-repeat: no-repeat; color: #CC0000; display: block; list-style-type: none; margin: 0; padding: 0 0 0 24px; line-height: 1.5; }
+/*ul, ol { padding: 0 0 1em 2.2em; }*/
+
+.add-new-eo { float: left; margin: 12px 0; }
+.delete-new-eo { float: left; margin: 12px 6px 12px 0; }
+.add-new-rate { float: left; margin: 12px 0; }
+.delete-new-rate { float: left; margin: 12px 6px 12px 0; }
+
+#corp-multi-yes-meo-step3 .rate-groups h2, #corp-multi-1eo-sr-step3 .rate-groups h2, #corp-multi-yes-meo-step2 .eo-group h2 { font-size: 100%; background-color: #999999; color: #FFFFFF; margin-bottom: 12px; padding: 8px; }
+
+input.primary, input.secondary { _padding-left: 0px; _padding-right: 0px; width: auto; overflow: visible; }
+
+input.primary, input.secondary, a.primary, a.secondary, .primary {
+    border: 1px solid;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 2px 3px #999999;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 4px 6px;
+}
+
+input.primary, a.primary, a.primary:visited {
+    background: linear-gradient(#18A94E, #105D34) repeat scroll 0 0 transparent;
+    border-color: #247F44;
+    color: #EEEEEE;
+}
+input.secondary, a.secondary, a.secondary:visited {
+    background: linear-gradient(#EEEEEF, #BABCBE) repeat scroll 0 0 transparent;
+    border-color: #A5A7AA;
+    color: #444444;
+}
+
+
+
+
+input.primary,
+input.secondary,
+#container a.primary,
+#container a.secondary
+ {
+  border: 3px solid\9;
+  padding: 3px 9px\9;
+  font-weight: bold\9;
+  font-size: 1.2em\9;
+}
+input.primary, #container a.primary {
+  border-top-color: #18aa4a\9;
+  border-right-color: #105d34\9;
+  border-bottom-color: #105d34\9;
+  border-left-color: #18aa4a\9;
+  background: #27994d\9;
+  color: #efefef\9;
+}
+input.secondary, #container a.secondary {
+  border-top-color: #e7e7e8\9;
+  border-right-color: #a5a6ad\9;
+  border-bottom-color: #a5a6ad\9;
+  border-left-color: #e7e7e8\9;
+  background: #d4d5d6\9;
+  color: #343434\9;
+}
+
+input.primary:hover,
+input.primary:active,
+input.primary:focus,
+#container a.primary:hover,
+#container a.primary:active,
+#container a.primary:focus
+ {
+  color: #fff\9;
+}
+input.secondary:hover,
+input.secondary:active,
+input.secondary:focus,
+#container a.secondary:hover,
+#container a.secondary:active,
+#container a.secondary:focus {
+  color: #000\9;
+}
+input.primary:active,
+#container a.primary:active { /* "moves" button for realistic clicking */
+  border-top-color: #105d34\9;
+  border-right-color: #18aa4a\9;
+  border-bottom-color: #18aa4a\9;
+  border-left-color: #105d34\9;
+}
+input.secondary:active,
+#container a.secondary:active { /* "moves" button for realistic clicking */
+  border-top-color: #a5a6ad\9;
+  border-right-color: #e7e7e8\9;
+  border-bottom-color: #e7e7e8\9;
+  border-left-color: #a5a6ad\9;
+}

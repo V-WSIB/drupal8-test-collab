@@ -1,0 +1,5 @@
+name: 'WSIB Layouts'
+type: module
+description: 'Layouts adjustments for WSIB'
+core: 8.x
+package: Custom

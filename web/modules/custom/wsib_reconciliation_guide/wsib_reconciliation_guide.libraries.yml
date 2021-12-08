@@ -1,0 +1,9 @@
+reconciliation_guide:
+  version: VERSION
+  css:
+    theme:
+      css/reconciliation_guide.css: {}
+  js:
+    js/reconciliation_guide.js: {}
+  dependencies:
+    - core/jquery

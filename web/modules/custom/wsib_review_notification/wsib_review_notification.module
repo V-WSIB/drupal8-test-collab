@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for WSIB Review Notification module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function wsib_review_notification_node_insert(EntityInterface $entity) {
+  $excluded_bundles = [
+    'operational_policy',
+    'employer_classification',
+    'programs_of_care_provider',
+  ];
+  if (!empty($entity) && $entity->get('moderation_state')->value === 'ready_for_review' && !in_array($entity->bundle(), $excluded_bundles)) {
+    $ids = \Drupal::entityQuery('user')
+      ->condition('status', 1)
+      ->condition('roles', 'admin')
+      ->execute();
+
+    $users = User::loadMultiple($ids);
+    if (!empty($users)) {
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], ['absolute' => TRUE])->toString();
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'wsib_send_email';
+      $key = 'ready_for_review_notification';
+      $subject = t('Content ready for review: /node/') . $entity->id();
+      $body = t('The following content is ready for review:') . "\r\n\r\n" . $url;
+      $params = [
+        'subject' => $subject,
+        'message' => $body,
+      ];
+      foreach ($users as $user) {
+        if ($user->hasField('mail') && $user->isActive() && !empty($user->get('mail')->value)) {
+          $to = $user->get('mail')->value;
+
+          $langcode = \Drupal::currentUser()->getPreferredLangcode();
+          $send = TRUE;
+          $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function wsib_review_notification_node_update(EntityInterface $entity) {
+  $excluded_bundles = [
+    'operational_policy',
+    'employer_classification',
+    'programs_of_care_provider',
+  ];
+  if (!empty($entity) && $entity->get('moderation_state')->value === 'ready_for_review' && !in_array($entity->bundle(), $excluded_bundles)) {
+    $ids = \Drupal::entityQuery('user')
+      ->condition('status', 1)
+      ->condition('roles', 'admin')
+      ->execute();
+
+    $users = User::loadMultiple($ids);
+    if (!empty($users)) {
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], ['absolute' => TRUE])->toString();
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'wsib_send_email';
+      $key = 'ready_for_review_notification';
+      $subject = t('Content ready for review: /node/') . $entity->id();
+      $body = t('The following content is ready for review:') . "\r\n\r\n" . $url;
+      $params = [
+        'subject' => $subject,
+        'message' => $body,
+      ];
+      foreach ($users as $user) {
+        if ($user->hasField('mail') && $user->isActive() && !empty($user->get('mail')->value)) {
+          $to = $user->get('mail')->value;
+
+          $langcode = \Drupal::currentUser()->getPreferredLangcode();
+          $send = TRUE;
+          $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+estimator import form access:
+  title: 'Access to Premium Estimator Import Administration Form'
+  description: 'Enables the specific role to upload Premium Estimator spreadsheet and save content'
+  restrict access: true

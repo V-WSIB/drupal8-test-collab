@@ -1,0 +1,11 @@
+name: 'DE Slider'
+type: module
+description: 'Slide content type, configuration, and basic view.'
+core: 8.x
+package: Custom (Experimental)
+dependencies:
+  - drupal:image
+  - drupal:link
+  - drupal:media
+  - drupal:node
+  - drupal:user

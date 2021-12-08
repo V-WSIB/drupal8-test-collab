@@ -1,0 +1,5 @@
+name: 'WSIB Construction Industry Calculator'
+type: module
+description: 'Provides block that holds client provided calculator code.'
+core: 8.x
+package: Custom

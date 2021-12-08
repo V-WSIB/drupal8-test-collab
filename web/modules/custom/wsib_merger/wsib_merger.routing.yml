@@ -1,0 +1,7 @@
+wsib_merger.form:
+  path: '/admin/content/wsib-merger'
+  defaults:
+    _form: '\Drupal\wsib_merger\Form\WsibMergerForm'
+    _title: 'WSIB Merger Administration'
+  requirements:
+    _permission: 'adminsiter site configuration'

@@ -1,0 +1,6 @@
+wsib_open_data.import_form:
+  title: 'WSIB Open Data Import Administration'
+  parent: system.admin_content
+  route_name: wsib_open_data.import_form
+  weight: 300
+  menu_name: system

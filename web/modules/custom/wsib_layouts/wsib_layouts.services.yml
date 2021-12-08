@@ -1,0 +1,4 @@
+services:
+  wsib_layouts.layouts_helpers:
+    class: Drupal\wsib_layouts\Services\WsibLayoutsUtilities
+    arguments: ['@language_manager']

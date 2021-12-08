@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * WSIB Open Data Import module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wsib_open_data_import_form_wsib_open_data_import_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#value'] = t('Upload File');
+}

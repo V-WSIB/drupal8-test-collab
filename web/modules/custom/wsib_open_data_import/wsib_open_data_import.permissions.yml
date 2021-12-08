@@ -1,0 +1,4 @@
+open data import form access:
+  title: 'Access to Open Data Import Administration Form'
+  description: 'Enables the specific role to access Open Data administration form and execute import process'
+  restrict access: true

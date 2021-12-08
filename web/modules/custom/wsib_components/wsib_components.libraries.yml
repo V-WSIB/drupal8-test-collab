@@ -1,0 +1,47 @@
+accordion:
+  version: VERSION
+  js:
+    js/accordion.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+colorbox_init:
+  version: VERSION
+  js:
+    js/colorbox_init.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - colorbox/colorbox
+    - colorbox/default
+jump_menu:
+  version: VERSION
+  js:
+    js/jump_menu.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+wsib_slick:
+  version: VERSION
+  js:
+    js/wsib_slick_init.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - de_theme/slick
+tabs:
+  version: VERSION
+  js:
+    js/tabs.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+video-button:
+  version: VERSION
+  js:
+    js/video_button.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

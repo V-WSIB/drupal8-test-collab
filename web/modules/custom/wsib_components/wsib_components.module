@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for WSIB Components module.
+ */
+
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function wsib_components_preprocess_node(&$variables) {
+  $nid = $variables['node']->id();
+  $variables['attributes']['class'][] = 'nid-' . $nid;
+  // All Components.
+  if (isset($variables['node']->field_display_component_title)) {
+    $component_title = $variables['node']->field_display_component_title->getValue();
+    if (!empty($component_title)) {
+      $component_title = reset($component_title);
+      if (isset($component_title['value'])) {
+        $component_title_display = $component_title['value'];
+        if ($component_title_display != 1) {
+          $variables['component_title_visibility'] = "component-title-hidden";
+        }
+        else {
+          $variables['component_title_visibility'] = "component-title-visible";
+        }
+      }
+    }
+  }
+  // Accordion.
+  if ($variables['node']->bundle() === 'accordion') {
+    $variables['#attached']['library'][] = 'wsib_components/accordion';
+  }
+  // CTA.
+  if ($variables['node']->bundle() === 'cta') {
+    $cta_image_field = $variables['node']->get('field_cta_style')->getValue();
+    $cta_image_field = reset($cta_image_field);
+    if (isset($cta_image_field['value'])) {
+      $cta_style_type = $cta_image_field['value'];
+      $variables['cta_style_type'] = $cta_style_type;
+    }
+    if (isset($variables['node']->field_cta_buttons)) {
+      $link = $variables['node']->field_cta_buttons->getValue();
+      $link = reset($link);
+      if (isset($link['uri'])) {
+        $link = Url::fromUri($link['uri'])->toString();
+        $variables['link_url'] = $link;
+      }
+    }
+    if (isset($variables['node']->field_background_image)) {
+      $background_file = $variables['node']->field_background_image->getValue();
+      $background_file = reset($background_file);
+      if (isset($background_file['target_id'])) {
+        $media_entity = \Drupal::entityTypeManager()->getStorage('media')->load($background_file['target_id']);
+        if (is_object($media_entity) && isset($media_entity->field_media_image)) {
+          $media_image = $media_entity->field_media_image->getValue();
+          $media_image = reset($media_image);
+          $file = \Drupal::entityTypeManager()->getStorage('file')->load($media_image['target_id']);
+          if (is_object($file)) {
+            $uri = $file->getFileUri();
+            $variables['cta_bg_url'] = file_create_url($uri);
+          }
+        }
+      }
+    }
+  }
+  // Image.
+  if ($variables['node']->bundle() === 'image') {
+    $image_field = $variables['node']->get('field_image_style')->getValue();
+    if (!empty($image_field)) {
+      $image_field = reset($image_field);
+      if (isset($image_field['value'])) {
+        $image_style_type = $image_field['value'];
+        $variables['image_style_type'] = $image_style_type;
+      }
+    }
+    if (isset($variables['node']->field_image_link)) {
+      $image_link = $variables['node']->field_image_link->getValue();
+      if (!empty($image_link)) {
+        $image_link = reset($image_link);
+        if (isset($image_link['uri'])) {
+          $variables['image_link'] = Url::fromUri($image_link['uri']);
+        }
+      }
+    }
+    if ($image_style_type == 'colorbox') {
+      $variables['#attached']['library'][] = 'wsib_components/colorbox_init';
+    }
+  }
+  // Image Gallery.
+  if ($variables['node']->bundle() === 'image_gallery') {
+    $variables['#attached']['library'][] = 'wsib_components/wsib_slick';
+  }
+  // Tabs.
+  if ($variables['node']->bundle() === 'tabs') {
+    $tab_items = $variables['node']->field_tab_item->getValue();
+    if (!empty($tab_items)) {
+      $controls = [];
+      foreach ($tab_items as $key => $tab_item) {
+        if (isset($tab_item['target_id'])) {
+          $t_item = \Drupal::EntityTypeManager()->getStorage('node')->load($tab_item['target_id']);
+          if ($key == 0) {
+            $controls[] = [
+              '#type' => 'html_tag',
+              '#tag' => 'button',
+              '#value' => $t_item->title->value,
+              '#attributes' => [
+                'class' => [
+                  'nid-' . $tab_item['target_id'],
+                  'active-tab',
+                ],
+                'id' => $tab_item['target_id'],
+                'role' => 'tab',
+                'aria-selected' => 'true',
+                'aria-controls' => 'tab-content-' . $tab_item['target_id'],
+              ],
+            ];
+          }
+          else {
+            $controls[] = [
+              '#type' => 'html_tag',
+              '#tag' => 'button',
+              '#value' => $t_item->title->value,
+              '#attributes' => [
+                'class' => [
+                  'nid-' . $tab_item['target_id'],
+                ],
+                'id' => $tab_item['target_id'],
+                'role' => 'tab',
+                'aria-selected' => 'false',
+                'aria-controls' => 'tab-content-' . $tab_item['target_id'],
+              ],
+            ];
+          }
+        }
+      }
+    }
+    $variables['controls'] = $controls;
+    $variables['#attached']['library'][] = 'wsib_components/tabs';
+  }
+  // Highlight.
+  if ($variables['node']->bundle() === 'highlight') {
+    // Check for video field value.
+    if (isset($variables['node']->field_video_url)) {
+      $video_field = $variables['node']->field_video_url->getValue();
+      if (isset($video_field[0]['value'])) {
+        $variables['video_url'] = $video_field[0]['value'];
+      }
+    }
+    // Check for main image field value.
+    if (isset($variables['node']->field_main_image)) {
+      $main_image_field = $variables['node']->field_main_image->getValue();
+      $main_image_field = reset($main_image_field);
+      if (isset($main_image_field['target_id'])) {
+        $variables['main_image'] = $main_image_field['target_id'];
+      }
+    }
+    // Check for link field uri value.
+    if (isset($variables['node']->field_link)) {
+      $link_field = $variables['node']->field_link->getValue();
+      if (isset($link_field[0]['uri'])) {
+        $variables['image_link'] = $link_field[0]['uri'];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function wsib_components_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  if (!empty($variables)) {
+    $type = $variables['elements']['#node']->getType();
+    $components = [
+      'text',
+      'image_gallery',
+      'video',
+      'data_table',
+      'image',
+      'tabs',
+      'row',
+      'accordion',
+    ];
+    if (in_array($type, $components)) {
+      $suggestions = ['node__component'] + $suggestions;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_video_embed_iframe().
+ */
+function wsib_components_preprocess_video_embed_iframe(array &$variables) {
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front) {
+    unset($variables['query']['autoplay']);
+    $variables['query']['background'] = 1;
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function wsib_components_preprocess_views_view(&$variables) {
+  if ($variables['view']->id() === 'jump_menus' && $variables['view']->current_display === 'menu_block') {
+    $variables['#attached']['library'][] = 'wsib_components/jump_menu';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wsib_components_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  if (in_array($form['#form_id'], ['node_page_edit_form', 'node_page_form'])) {
+    // Remove None option from Text Colour select list.
+    unset($form['field_main_image_text_colour']['widget']['#options']['_none']);
+  }
+}

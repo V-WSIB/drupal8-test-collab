@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * WSIB Menu module file.
+ */
+
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function wsib_menu_preprocess_block(&$variables) {
+  if ($variables['elements']['#plugin_id'] === 'responsive_menu_horizontal_menu') {
+    $variables['#attached']['library'][] = 'wsib_menu/menu_display_children';
+  }
+}
+
+/**
+ * Implements hook_responsive_menu_off_canvas_menu_names_alter().
+ */
+function wsib_menu_responsive_menu_off_canvas_menu_names_alter(&$menus) {
+  $menus .= ', secondary-navigation';
+}
+
+/**
+ * Implements hook_preprocess_views_view_field().
+ */
+function wsib_menu_preprocess_views_view_field(&$variables) {
+  if ($variables['view']->id() == 'link_collection' && $variables['field']->field == 'field_links' && isset($variables['row']->node__field_links_field_links_uri)) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      $nid = $node->id();
+      if ($nid == str_replace("entity:node/", "", $variables['row']->node__field_links_field_links_uri)) {
+        $variables['output'] = new TranslatableMarkup(str_replace("<a ", '<a class="active" ', $variables['output']));
+      }
+    }
+    $variables['#cache']['contexts'][] = 'url.path';
+  }
+}

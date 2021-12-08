@@ -1,0 +1,5 @@
+name: WSIB Menu
+type: module
+description: Provides functionalities for WSIB menus
+core: 8.x
+package: DE Custom

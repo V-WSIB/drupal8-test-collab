@@ -1,0 +1,19 @@
+wsib_premium_estimator.import_form:
+  path: '/admin/content/estimator-import'
+  defaults:
+    _form: '\Drupal\wsib_premium_estimator\Form\EstimatorImportForm'
+    _title: 'WSIB Premium Estimator Import Administration Form'
+  requirements:
+    _permission: 'estimator import form access'
+
+wsib_premium_estimator.sector_view_page:
+  path: '/premium-estimator/industry'
+
+wsib_premium_estimator.sector_view_page_fr:
+  path: '/estimateur-de-prime/industrie'
+
+wsib_premium_estimator.calculator:
+  path: '/premium-estimator/calculate'
+
+wsib_premium_estimator.calculator_fr:
+  path: '/estimateur-de-prime/calculer'

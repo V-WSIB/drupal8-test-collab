@@ -1,0 +1,13 @@
+constr_calc:
+  css:
+    theme:
+      css/calc.css: {}
+  js:
+    js/autoNumeric.js : {}
+    js/calc.js: {}
+    js/inline.js: {}
+
+  dependencies:
+  - core/drupal
+  - core/drupalSettings
+  - core/jquery.once

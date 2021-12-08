@@ -1,0 +1,7 @@
+wsib_open_data.import_form:
+  path: '/admin/content/open-data-import'
+  defaults:
+    _form: '\Drupal\wsib_open_data_import\Form\OpenDataImportForm'
+    _title: 'WSIB Open Data Import Administration Form'
+  requirements:
+    _permission: 'open data import form access'

@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for the WSIB Alert Block module.
+ */
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function wsib_alert_block_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#id']) && $variables['elements']['#id'] === 'alertblock') {
+    // $variables['content']['#attached']['library'][] = 'wsib_alert_block/wsib_alert';
+  }
+}

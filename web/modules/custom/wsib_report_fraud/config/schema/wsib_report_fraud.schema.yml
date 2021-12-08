@@ -1,0 +1,13 @@
+wsib_report_fraud.settings:
+  type: config_object
+  label: 'WSIB Report Fraud Form settings'
+  mapping:
+    attachment:
+      label: 'Attachment'
+      type: text_format
+    confirmation:
+      label: 'Confirmation'
+      type: text
+    disclaimer:
+      label: 'Disclaimer'
+      type: text_format
